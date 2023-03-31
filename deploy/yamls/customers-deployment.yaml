@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    move2kube.konveyor.io/service: customers
+  name: customers
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 2
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      move2kube.konveyor.io/service: customers
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        move2kube.konveyor.io/service: customers
+      name: customers
+    spec:
+      containers:
+        - env:
+            - name: VCAP_SERVICES
+              valueFrom:
+                secretKeyRef:
+                  key: VCAP_SERVICES
+                  name: customers-vcapasenv
+            - name: VCAP_APPLICATION
+              valueFrom:
+                secretKeyRef:
+                  key: VCAP_APPLICATION
+                  name: customers-vcapasenv
+            - name: SPRING_CONFIG_IMPORT
+              value: /vcap/vcap-properties.yaml
+          image: quay.io/jobinl400ey/customers:latest
+          imagePullPolicy: Always
+          name: customers
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          resources:
+            requests:
+              ephemeral-storage: 1024M
+              memory: 1024M
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+            - mountPath: /vcap
+              name: vcapsecretvolume
+      dnsPolicy: ClusterFirst
+      imagePullSecrets:
+        - name: quay-io-imagepullsecret
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+        - name: vcapsecretvolume
+          secret:
+            defaultMode: 420
+            secretName: customers-vcapasspringbootproperties
+status: {}

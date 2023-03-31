@@ -1,0 +1,259 @@
+apiVersion: template.openshift.io/v1
+kind: Template
+metadata:
+  name: target-enterprise-app-template
+  generatename: ""
+  namespace: ""
+  selflink: ""
+  uid: ""
+  resourceversion: ""
+  generation: 0
+  creationtimestamp: "0001-01-01T00:00:00Z"
+  deletiontimestamp: null
+  deletiongraceperiodseconds: null
+  labels: {}
+  annotations: {}
+  ownerreferences: []
+  finalizers: []
+  clustername: ""
+  managedfields: []
+objects:
+  - apiVersion: serving.knative.dev/v1
+    kind: Service
+    metadata:
+      creationTimestamp: null
+      labels:
+        move2kube.konveyor.io/service: gateway
+      name: gateway
+    spec:
+      template:
+        metadata:
+          creationTimestamp: null
+        spec:
+          containers:
+            - env:
+                - name: JBP_CONFIG_SPRING_AUTO_RECONFIGURATION
+                  value: '{ enabled: false }'
+                - name: SPRING_PROFILES_ACTIVE
+                  value: dev
+                - name: VCAP_SERVICES
+                  valueFrom:
+                    secretKeyRef:
+                      key: VCAP_SERVICES
+                      name: gateway-vcapasenv
+                - name: VCAP_APPLICATION
+                  valueFrom:
+                    secretKeyRef:
+                      key: VCAP_APPLICATION
+                      name: gateway-vcapasenv
+                - name: ENTERPRISE_APP_INVENTORY_URL
+                  value: http://enterprise-app-525210839-inventory.20.231.121.184.nip.io/products
+                - name: ENTERPRISE_APP_ORDERS_URL
+                  value: http://enterprise-app-525210839-orders.20.231.121.184.nip.io/orders
+                - name: ENTERPRISE_APP_CUSTOMERS_URL
+                  value: http://enterprise-app-525210839-customers.20.231.121.184.nip.io/customers
+                - name: SPRING_CONFIG_IMPORT
+                  value: /vcap/vcap-properties.yaml
+              image: quay.io/jobinl400ey/gateway:latest
+              imagePullPolicy: Always
+              name: gateway
+              ports:
+                - containerPort: 8080
+              resources:
+                requests:
+                  ephemeral-storage: 1024M
+                  memory: 1024M
+              volumeMounts:
+                - mountPath: /vcap
+                  name: vcapsecretvolume
+          imagePullSecrets:
+            - name: quay-io-imagepullsecret
+          restartPolicy: Always
+          securityContext: {}
+          volumes:
+            - name: vcapsecretvolume
+              secret:
+                secretName: gateway-vcapasspringbootproperties
+    status: {}
+  - apiVersion: serving.knative.dev/v1
+    kind: Service
+    metadata:
+      creationTimestamp: null
+      labels:
+        move2kube.konveyor.io/service: inventory
+      name: inventory
+    spec:
+      template:
+        metadata:
+          creationTimestamp: null
+        spec:
+          containers:
+            - env:
+                - name: VCAP_SERVICES
+                  valueFrom:
+                    secretKeyRef:
+                      key: VCAP_SERVICES
+                      name: inventory-vcapasenv
+                - name: VCAP_APPLICATION
+                  valueFrom:
+                    secretKeyRef:
+                      key: VCAP_APPLICATION
+                      name: inventory-vcapasenv
+                - name: SPRING_CONFIG_IMPORT
+                  value: /vcap/vcap-properties.yaml
+              image: quay.io/jobinl400ey/inventory:latest
+              imagePullPolicy: Always
+              name: inventory
+              ports:
+                - containerPort: 8080
+              resources:
+                requests:
+                  ephemeral-storage: 1024M
+                  memory: 1024M
+              volumeMounts:
+                - mountPath: /vcap
+                  name: vcapsecretvolume
+          imagePullSecrets:
+            - name: quay-io-imagepullsecret
+          restartPolicy: Always
+          securityContext: {}
+          volumes:
+            - name: vcapsecretvolume
+              secret:
+                secretName: inventory-vcapasspringbootproperties
+    status: {}
+  - apiVersion: serving.knative.dev/v1
+    kind: Service
+    metadata:
+      creationTimestamp: null
+      labels:
+        move2kube.konveyor.io/service: orders
+      name: orders
+    spec:
+      template:
+        metadata:
+          creationTimestamp: null
+        spec:
+          containers:
+            - env:
+                - name: VCAP_APPLICATION
+                  valueFrom:
+                    secretKeyRef:
+                      key: VCAP_APPLICATION
+                      name: orders-vcapasenv
+                - name: VCAP_SERVICES
+                  valueFrom:
+                    secretKeyRef:
+                      key: VCAP_SERVICES
+                      name: orders-vcapasenv
+                - name: SPRING_CONFIG_IMPORT
+                  value: /vcap/vcap-properties.yaml
+              image: quay.io/jobinl400ey/orders:latest
+              imagePullPolicy: Always
+              name: orders
+              ports:
+                - containerPort: 8080
+              resources:
+                requests:
+                  ephemeral-storage: 1024M
+                  memory: 1024M
+              volumeMounts:
+                - mountPath: /vcap
+                  name: vcapsecretvolume
+          imagePullSecrets:
+            - name: quay-io-imagepullsecret
+          restartPolicy: Always
+          securityContext: {}
+          volumes:
+            - name: vcapsecretvolume
+              secret:
+                secretName: orders-vcapasspringbootproperties
+    status: {}
+  - apiVersion: serving.knative.dev/v1
+    kind: Service
+    metadata:
+      creationTimestamp: null
+      labels:
+        move2kube.konveyor.io/service: customers
+      name: customers
+    spec:
+      template:
+        metadata:
+          creationTimestamp: null
+        spec:
+          containers:
+            - env:
+                - name: VCAP_SERVICES
+                  valueFrom:
+                    secretKeyRef:
+                      key: VCAP_SERVICES
+                      name: customers-vcapasenv
+                - name: VCAP_APPLICATION
+                  valueFrom:
+                    secretKeyRef:
+                      key: VCAP_APPLICATION
+                      name: customers-vcapasenv
+                - name: SPRING_CONFIG_IMPORT
+                  value: /vcap/vcap-properties.yaml
+              image: quay.io/jobinl400ey/customers:latest
+              imagePullPolicy: Always
+              name: customers
+              ports:
+                - containerPort: 8080
+              resources:
+                requests:
+                  ephemeral-storage: 1024M
+                  memory: 1024M
+              volumeMounts:
+                - mountPath: /vcap
+                  name: vcapsecretvolume
+          imagePullSecrets:
+            - name: quay-io-imagepullsecret
+          restartPolicy: Always
+          securityContext: {}
+          volumes:
+            - name: vcapsecretvolume
+              secret:
+                secretName: customers-vcapasspringbootproperties
+    status: {}
+  - apiVersion: serving.knative.dev/v1
+    kind: Service
+    metadata:
+      creationTimestamp: null
+      labels:
+        move2kube.konveyor.io/service: frontend
+      name: frontend
+    spec:
+      template:
+        metadata:
+          creationTimestamp: null
+        spec:
+          containers:
+            - env:
+                - name: VCAP_SERVICES
+                  valueFrom:
+                    secretKeyRef:
+                      key: VCAP_SERVICES
+                      name: frontend-vcapasenv
+                - name: VCAP_APPLICATION
+                  valueFrom:
+                    secretKeyRef:
+                      key: VCAP_APPLICATION
+                      name: frontend-vcapasenv
+                - name: ENTERPRISE_APP_GATEWAY_URL
+                  value: http://enterprise-app-525210839-gateway.20.231.121.184.nip.io
+              image: quay.io/jobinl400ey/frontend:latest
+              imagePullPolicy: Always
+              name: frontend
+              ports:
+                - containerPort: 8080
+              resources:
+                requests:
+                  ephemeral-storage: 1024M
+                  memory: 2048M
+          imagePullSecrets:
+            - name: quay-io-imagepullsecret
+          restartPolicy: Always
+          securityContext: {}
+    status: {}
+parameters: []

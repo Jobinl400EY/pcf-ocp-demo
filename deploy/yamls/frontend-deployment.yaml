@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    move2kube.konveyor.io/service: frontend
+  name: frontend
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 2
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      move2kube.konveyor.io/service: frontend
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        move2kube.konveyor.io/service: frontend
+      name: frontend
+    spec:
+      containers:
+        - env:
+            - name: VCAP_SERVICES
+              valueFrom:
+                secretKeyRef:
+                  key: VCAP_SERVICES
+                  name: frontend-vcapasenv
+            - name: VCAP_APPLICATION
+              valueFrom:
+                secretKeyRef:
+                  key: VCAP_APPLICATION
+                  name: frontend-vcapasenv
+            - name: ENTERPRISE_APP_GATEWAY_URL
+              value: http://enterprise-app-525210839-gateway.20.231.121.184.nip.io
+          image: quay.io/jobinl400ey/frontend:latest
+          imagePullPolicy: Always
+          name: frontend
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          resources:
+            requests:
+              ephemeral-storage: 1024M
+              memory: 2048M
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      imagePullSecrets:
+        - name: quay-io-imagepullsecret
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status: {}

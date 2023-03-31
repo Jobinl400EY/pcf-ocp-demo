@@ -1,0 +1,21 @@
+resources:
+  - target-enterprise-app-git-repo-eventlistener.yaml
+  - target-enterprise-app-git-repo-route.yaml
+  - target-enterprise-app-tekton-triggers-admin-rolebinding.yaml
+  - target-enterprise-app-git-event-triggerbinding.yaml
+  - target-enterprise-app-tekton-triggers-admin-serviceaccount.yaml
+  - customers-vcapasspringbootproperties-secret.yaml
+  - frontend-vcapasenv-secret.yaml
+  - gateway-vcapasspringbootproperties-secret.yaml
+  - gateway-vcapasenv-secret.yaml
+  - target-enterprise-app-clone-push-serviceaccount.yaml
+  - target-enterprise-app-tekton-triggers-admin-role.yaml
+  - orders-vcapasenv-secret.yaml
+  - orders-vcapasspringbootproperties-secret.yaml
+  - quay-io-imagepullsecret-secret.yaml
+  - target-enterprise-app-clone-build-push-pipeline.yaml
+  - target-enterprise-app-image-registry-secret.yaml
+  - customers-vcapasenv-secret.yaml
+  - inventory-vcapasenv-secret.yaml
+  - inventory-vcapasspringbootproperties-secret.yaml
+  - target-enterprise-app-run-clone-build-push-triggertemplate.yaml

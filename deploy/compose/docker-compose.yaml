@@ -1,0 +1,57 @@
+version: "3.5"
+services:
+  customers:
+    container_name: customers
+    environment:
+      SPRING_CONFIG_IMPORT: /vcap/vcap-properties.yaml
+      VCAP_APPLICATION: /vcap/vcap-properties.yaml
+      VCAP_SERVICES: /vcap/vcap-properties.yaml
+    image: quay.io/jobinl400ey/customers:latest
+    ports:
+      - target: 8080
+        published: 8082
+  frontend:
+    container_name: frontend
+    environment:
+      ENTERPRISE_APP_GATEWAY_URL: http://enterprise-app-525210839-gateway.20.231.121.184.nip.io
+      VCAP_APPLICATION: http://enterprise-app-525210839-gateway.20.231.121.184.nip.io
+      VCAP_SERVICES: http://enterprise-app-525210839-gateway.20.231.121.184.nip.io
+    image: quay.io/jobinl400ey/frontend:latest
+    ports:
+      - target: 8080
+        published: 8083
+  gateway:
+    container_name: gateway
+    environment:
+      ENTERPRISE_APP_CUSTOMERS_URL: /vcap/vcap-properties.yaml
+      ENTERPRISE_APP_INVENTORY_URL: /vcap/vcap-properties.yaml
+      ENTERPRISE_APP_ORDERS_URL: /vcap/vcap-properties.yaml
+      JBP_CONFIG_SPRING_AUTO_RECONFIGURATION: /vcap/vcap-properties.yaml
+      SPRING_CONFIG_IMPORT: /vcap/vcap-properties.yaml
+      SPRING_PROFILES_ACTIVE: /vcap/vcap-properties.yaml
+      VCAP_APPLICATION: /vcap/vcap-properties.yaml
+      VCAP_SERVICES: /vcap/vcap-properties.yaml
+    image: quay.io/jobinl400ey/gateway:latest
+    ports:
+      - target: 8080
+        published: 8084
+  inventory:
+    container_name: inventory
+    environment:
+      SPRING_CONFIG_IMPORT: /vcap/vcap-properties.yaml
+      VCAP_APPLICATION: /vcap/vcap-properties.yaml
+      VCAP_SERVICES: /vcap/vcap-properties.yaml
+    image: quay.io/jobinl400ey/inventory:latest
+    ports:
+      - target: 8080
+        published: 8081
+  orders:
+    container_name: orders
+    environment:
+      SPRING_CONFIG_IMPORT: /vcap/vcap-properties.yaml
+      VCAP_APPLICATION: /vcap/vcap-properties.yaml
+      VCAP_SERVICES: /vcap/vcap-properties.yaml
+    image: quay.io/jobinl400ey/orders:latest
+    ports:
+      - target: 8080
+        published: 8080

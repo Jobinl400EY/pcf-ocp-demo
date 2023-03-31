@@ -1,0 +1,35 @@
+
+---
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+    creationTimestamp: null
+    name: target-enterprise-app-clone-build-push-customers
+spec:
+    nodeSelector: null
+    output:
+        to:
+            kind: ImageStreamTag
+            name: customers-latest:latest
+    postCommit: {}
+    resources: {}
+    source:
+        git:
+            ref: main
+            uri: ""
+        sourceSecret:
+            name: target-enterprise-app-git-repo-generic
+        type: Git
+    strategy:
+        dockerStrategy:
+            dockerfilePath: '<TODO: insert path to the Dockerfile>'
+        type: Docker
+    triggers:
+        - generic:
+            secretReference:
+                name: target-enterprise-app-web-hook-customers
+          type: Generic
+status:
+    lastVersion: 0
+
+...

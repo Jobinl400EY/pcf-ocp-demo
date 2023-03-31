@@ -1,0 +1,19 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  creationTimestamp: null
+  labels:
+    move2kube.konveyor.io/service: target-enterprise-app-git-repo
+  name: target-enterprise-app-git-repo
+spec:
+  host: target-enterprise-app.com
+  path: /el-target-enterprise-app-git-repo
+  port:
+    targetPort: port-8080
+  to:
+    kind: Service
+    name: target-enterprise-app-git-repo
+    weight: 1
+status:
+  ingress:
+    - {}

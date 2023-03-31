@@ -1,0 +1,660 @@
+apiVersion: template.openshift.io/v1
+kind: Template
+metadata:
+  name: target-enterprise-app-template
+  generatename: ""
+  namespace: ""
+  selflink: ""
+  uid: ""
+  resourceversion: ""
+  generation: 0
+  creationtimestamp: "0001-01-01T00:00:00Z"
+  deletiontimestamp: null
+  deletiongraceperiodseconds: null
+  labels: {}
+  annotations: {}
+  ownerreferences: []
+  finalizers: []
+  clustername: ""
+  managedfields: []
+objects:
+  - apiVersion: v1
+    data:
+      VCAP_APPLICATION: eyJhcHBsaWNhdGlvbl9pZCI6Ijg3MzUzOTNiLWExZjctNDIxMS1hNmIzLTQ1OWE3YzVlNjc0OSIsImFwcGxpY2F0aW9uX25hbWUiOiJpbnZlbnRvcnkiLCJhcHBsaWNhdGlvbl91cmlzIjpbImVudGVycHJpc2UtYXBwLTUyNTIxMDgzOS1pbnZlbnRvcnkuMjAuMjMxLjEyMS4xODQubmlwLmlvIl0sImFwcGxpY2F0aW9uX3ZlcnNpb24iOiIxMTZmN2E4Ni03NTQzLTRkOWItYTJlNS1jYWQ3OWViYTA2YTAiLCJjZl9hcGkiOiJodHRwczovL2FwaS4yMC4yMzEuMTIxLjE4NC5uaXAuaW8iLCJsaW1pdHMiOnsiZGlzayI6MTAyNCwiZmRzIjoxNjM4NCwibWVtIjoxMDI0fSwibmFtZSI6ImludmVudG9yeSIsInNwYWNlX2lkIjoiMzAyZmZlMGMtMzgzZC00NGNhLTg3MmItYWY3N2JjNTlmNjNmIiwic3BhY2VfbmFtZSI6ImVudGVycHJpc2UiLCJ1cmlzIjpbImVudGVycHJpc2UtYXBwLTUyNTIxMDgzOS1pbnZlbnRvcnkuMjAuMjMxLjEyMS4xODQubmlwLmlvIl0sInVzZXJzIjpudWxsLCJ2ZXJzaW9uIjoiMTE2ZjdhODYtNzU0My00ZDliLWEyZTUtY2FkNzllYmEwNmEwIn0=
+      VCAP_SERVICES: e30=
+    kind: Secret
+    metadata:
+      creationTimestamp: null
+      name: inventory-vcapasenv
+    type: Opaque
+  - apiVersion: v1
+    data:
+      vcap-properties.yaml: dmNhcC5hcHBsaWNhdGlvbi5jZl9hcGk6IGh0dHBzOi8vYXBpLjIwLjIzMS4xMjEuMTg0Lm5pcC5pbwp2Y2FwLmFwcGxpY2F0aW9uLmxpbWl0cy5kaXNrOiAxMDI0CnZjYXAuYXBwbGljYXRpb24ubGltaXRzLmZkczogMTYzODQKdmNhcC5hcHBsaWNhdGlvbi5saW1pdHMubWVtOiAxMDI0CnZjYXAuYXBwbGljYXRpb24uc3BhY2VfaWQ6IDMwMmZmZTBjLTM4M2QtNDRjYS04NzJiLWFmNzdiYzU5ZjYzZgp2Y2FwLmFwcGxpY2F0aW9uLnNwYWNlX25hbWU6IGVudGVycHJpc2UKdmNhcC5hcHBsaWNhdGlvbi51cmlzOiBlbnRlcnByaXNlLWFwcC01MjUyMTA4Mzktb3JkZXJzLjIwLjIzMS4xMjEuMTg0Lm5pcC5pbwp2Y2FwLmFwcGxpY2F0aW9uLnVyaXNbMF06IGVudGVycHJpc2UtYXBwLTUyNTIxMDgzOS1vcmRlcnMuMjAuMjMxLjEyMS4xODQubmlwLmlvCnZjYXAuYXBwbGljYXRpb24uYXBwbGljYXRpb25fbmFtZTogb3JkZXJzCnZjYXAuYXBwbGljYXRpb24uYXBwbGljYXRpb25fdXJpczogZW50ZXJwcmlzZS1hcHAtNTI1MjEwODM5LW9yZGVycy4yMC4yMzEuMTIxLjE4NC5uaXAuaW8KdmNhcC5hcHBsaWNhdGlvbi5hcHBsaWNhdGlvbl91cmlzWzBdOiBlbnRlcnByaXNlLWFwcC01MjUyMTA4Mzktb3JkZXJzLjIwLjIzMS4xMjEuMTg0Lm5pcC5pbwp2Y2FwLmFwcGxpY2F0aW9uLmFwcGxpY2F0aW9uX3ZlcnNpb246IDc4ODRhMTIwLTA0MGEtNDQ0Yy1iYWYyLWI4OGQ1ODg4ZDcyNwp2Y2FwLmFwcGxpY2F0aW9uLnVzZXJzOiAKdmNhcC5hcHBsaWNhdGlvbi5hcHBsaWNhdGlvbl9pZDogMTcyZDYwZTUtZmE0MS00NTVhLWI3ZDMtMGE5MGU3YThhNDNkCnZjYXAuYXBwbGljYXRpb24ubmFtZTogb3JkZXJzCnZjYXAuYXBwbGljYXRpb24udmVyc2lvbjogNzg4NGExMjAtMDQwYS00NDRjLWJhZjItYjg4ZDU4ODhkNzI3
+    kind: Secret
+    metadata:
+      creationTimestamp: null
+      name: orders-vcapasspringbootproperties
+    type: Opaque
+  - apiVersion: image.openshift.io/v1
+    kind: ImageStream
+    metadata:
+      creationTimestamp: null
+      labels:
+        move2kube.konveyor.io/service: gateway-latest
+      name: gateway-latest
+    spec:
+      lookupPolicy:
+        local: false
+      tags:
+        - annotations: null
+          from:
+            kind: DockerImage
+            name: gateway
+          generation: null
+          importPolicy: {}
+          name: latest
+          referencePolicy:
+            type: ""
+    status:
+      dockerImageRepository: ""
+  - apiVersion: v1
+    kind: Service
+    metadata:
+      creationTimestamp: null
+      labels:
+        move2kube.konveyor.io/service: gateway
+      name: gateway
+    spec:
+      internalTrafficPolicy: Cluster
+      ports:
+        - name: port-8080
+          port: 8080
+          protocol: TCP
+          targetPort: 8080
+      selector:
+        move2kube.konveyor.io/service: gateway
+      sessionAffinity: None
+      type: ClusterIP
+    status:
+      loadBalancer: {}
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      creationTimestamp: null
+      labels:
+        move2kube.konveyor.io/service: inventory
+      name: inventory
+    spec:
+      progressDeadlineSeconds: 600
+      replicas: ${{COMMON_REPLICAS}}
+      revisionHistoryLimit: 10
+      selector:
+        matchLabels:
+          move2kube.konveyor.io/service: inventory
+      strategy:
+        rollingUpdate:
+          maxSurge: 25%
+          maxUnavailable: 25%
+        type: RollingUpdate
+      template:
+        metadata:
+          creationTimestamp: null
+          labels:
+            move2kube.konveyor.io/service: inventory
+          name: inventory
+        spec:
+          containers:
+            - env:
+                - name: VCAP_SERVICES
+                  valueFrom:
+                    secretKeyRef:
+                      key: VCAP_SERVICES
+                      name: inventory-vcapasenv
+                - name: VCAP_APPLICATION
+                  valueFrom:
+                    secretKeyRef:
+                      key: VCAP_APPLICATION
+                      name: inventory-vcapasenv
+                - name: SPRING_CONFIG_IMPORT
+                  value: /vcap/vcap-properties.yaml
+              image: quay.io/jobinl400ey/inventory:latest
+              imagePullPolicy: Always
+              name: inventory
+              ports:
+                - containerPort: 8080
+                  protocol: TCP
+              resources:
+                requests:
+                  ephemeral-storage: 1024M
+                  memory: 1024M
+              terminationMessagePath: /dev/termination-log
+              terminationMessagePolicy: File
+              volumeMounts:
+                - mountPath: /vcap
+                  name: vcapsecretvolume
+          dnsPolicy: ClusterFirst
+          imagePullSecrets:
+            - name: quay-io-imagepullsecret
+          restartPolicy: Always
+          schedulerName: default-scheduler
+          securityContext: {}
+          terminationGracePeriodSeconds: 30
+          volumes:
+            - name: vcapsecretvolume
+              secret:
+                defaultMode: 420
+                secretName: inventory-vcapasspringbootproperties
+    status: {}
+  - apiVersion: v1
+    kind: Service
+    metadata:
+      creationTimestamp: null
+      labels:
+        move2kube.konveyor.io/service: inventory
+      name: inventory
+    spec:
+      internalTrafficPolicy: Cluster
+      ports:
+        - name: port-8080
+          port: 8080
+          protocol: TCP
+          targetPort: 8080
+      selector:
+        move2kube.konveyor.io/service: inventory
+      sessionAffinity: None
+      type: ClusterIP
+    status:
+      loadBalancer: {}
+  - apiVersion: v1
+    data:
+      VCAP_APPLICATION: eyJhcHBsaWNhdGlvbl9pZCI6IjMzM2M2YTNhLTRjZDUtNDYwMy04Y2Y3LTE5YzVkYjliZjc0NSIsImFwcGxpY2F0aW9uX25hbWUiOiJmcm9udGVuZCIsImFwcGxpY2F0aW9uX3VyaXMiOlsiZW50ZXJwcmlzZS1hcHAtNTI1MjEwODM5LWZyb250ZW5kLjIwLjIzMS4xMjEuMTg0Lm5pcC5pbyJdLCJhcHBsaWNhdGlvbl92ZXJzaW9uIjoiNmFlNmMzNWEtMzAxMi00NWUyLWFkNGMtNzc4MjhiNDZjN2Y0IiwiY2ZfYXBpIjoiaHR0cHM6Ly9hcGkuMjAuMjMxLjEyMS4xODQubmlwLmlvIiwibGltaXRzIjp7ImRpc2siOjEwMjQsImZkcyI6MTYzODQsIm1lbSI6MjA0OH0sIm5hbWUiOiJmcm9udGVuZCIsInNwYWNlX2lkIjoiMzAyZmZlMGMtMzgzZC00NGNhLTg3MmItYWY3N2JjNTlmNjNmIiwic3BhY2VfbmFtZSI6ImVudGVycHJpc2UiLCJ1cmlzIjpbImVudGVycHJpc2UtYXBwLTUyNTIxMDgzOS1mcm9udGVuZC4yMC4yMzEuMTIxLjE4NC5uaXAuaW8iXSwidXNlcnMiOm51bGwsInZlcnNpb24iOiI2YWU2YzM1YS0zMDEyLTQ1ZTItYWQ0Yy03NzgyOGI0NmM3ZjQifQ==
+      VCAP_SERVICES: e30=
+    kind: Secret
+    metadata:
+      creationTimestamp: null
+      name: frontend-vcapasenv
+    type: Opaque
+  - apiVersion: v1
+    data:
+      vcap-properties.yaml: dmNhcC5hcHBsaWNhdGlvbi5saW1pdHMuZGlzazogMTAyNAp2Y2FwLmFwcGxpY2F0aW9uLmxpbWl0cy5mZHM6IDE2Mzg0CnZjYXAuYXBwbGljYXRpb24ubGltaXRzLm1lbTogMTAyNAp2Y2FwLmFwcGxpY2F0aW9uLnVzZXJzOiAKdmNhcC5hcHBsaWNhdGlvbi52ZXJzaW9uOiA1M2MyZGZkNC1hMmQ5LTQ2ZWUtYmZhNi1hZmI0YzgxNTU3MjQKdmNhcC5hcHBsaWNhdGlvbi5hcHBsaWNhdGlvbl92ZXJzaW9uOiA1M2MyZGZkNC1hMmQ5LTQ2ZWUtYmZhNi1hZmI0YzgxNTU3MjQKdmNhcC5hcHBsaWNhdGlvbi5jZl9hcGk6IGh0dHBzOi8vYXBpLjIwLjIzMS4xMjEuMTg0Lm5pcC5pbwp2Y2FwLmFwcGxpY2F0aW9uLmFwcGxpY2F0aW9uX3VyaXM6IGVudGVycHJpc2UtYXBwLTUyNTIxMDgzOS1nYXRld2F5LjIwLjIzMS4xMjEuMTg0Lm5pcC5pbwp2Y2FwLmFwcGxpY2F0aW9uLmFwcGxpY2F0aW9uX3VyaXNbMF06IGVudGVycHJpc2UtYXBwLTUyNTIxMDgzOS1nYXRld2F5LjIwLjIzMS4xMjEuMTg0Lm5pcC5pbwp2Y2FwLmFwcGxpY2F0aW9uLm5hbWU6IGdhdGV3YXkKdmNhcC5hcHBsaWNhdGlvbi5zcGFjZV9pZDogMzAyZmZlMGMtMzgzZC00NGNhLTg3MmItYWY3N2JjNTlmNjNmCnZjYXAuYXBwbGljYXRpb24uc3BhY2VfbmFtZTogZW50ZXJwcmlzZQp2Y2FwLmFwcGxpY2F0aW9uLnVyaXM6IGVudGVycHJpc2UtYXBwLTUyNTIxMDgzOS1nYXRld2F5LjIwLjIzMS4xMjEuMTg0Lm5pcC5pbwp2Y2FwLmFwcGxpY2F0aW9uLnVyaXNbMF06IGVudGVycHJpc2UtYXBwLTUyNTIxMDgzOS1nYXRld2F5LjIwLjIzMS4xMjEuMTg0Lm5pcC5pbwp2Y2FwLmFwcGxpY2F0aW9uLmFwcGxpY2F0aW9uX2lkOiA0NGE0NThjNC1kZWEwLTQyNWItODlhYy1hYjk1ZDlkMTJhZjcKdmNhcC5hcHBsaWNhdGlvbi5hcHBsaWNhdGlvbl9uYW1lOiBnYXRld2F5
+    kind: Secret
+    metadata:
+      creationTimestamp: null
+      name: gateway-vcapasspringbootproperties
+    type: Opaque
+  - apiVersion: image.openshift.io/v1
+    kind: ImageStream
+    metadata:
+      creationTimestamp: null
+      labels:
+        move2kube.konveyor.io/service: inventory-latest
+      name: inventory-latest
+    spec:
+      lookupPolicy:
+        local: false
+      tags:
+        - annotations: null
+          from:
+            kind: DockerImage
+            name: inventory
+          generation: null
+          importPolicy: {}
+          name: latest
+          referencePolicy:
+            type: ""
+    status:
+      dockerImageRepository: ""
+  - apiVersion: v1
+    data:
+      vcap-properties.yaml: dmNhcC5hcHBsaWNhdGlvbi5hcHBsaWNhdGlvbl9pZDogODczNTM5M2ItYTFmNy00MjExLWE2YjMtNDU5YTdjNWU2NzQ5CnZjYXAuYXBwbGljYXRpb24uYXBwbGljYXRpb25fdmVyc2lvbjogMTE2ZjdhODYtNzU0My00ZDliLWEyZTUtY2FkNzllYmEwNmEwCnZjYXAuYXBwbGljYXRpb24uY2ZfYXBpOiBodHRwczovL2FwaS4yMC4yMzEuMTIxLjE4NC5uaXAuaW8KdmNhcC5hcHBsaWNhdGlvbi5saW1pdHMuZGlzazogMTAyNAp2Y2FwLmFwcGxpY2F0aW9uLmxpbWl0cy5mZHM6IDE2Mzg0CnZjYXAuYXBwbGljYXRpb24ubGltaXRzLm1lbTogMTAyNAp2Y2FwLmFwcGxpY2F0aW9uLnNwYWNlX25hbWU6IGVudGVycHJpc2UKdmNhcC5hcHBsaWNhdGlvbi51cmlzOiBlbnRlcnByaXNlLWFwcC01MjUyMTA4MzktaW52ZW50b3J5LjIwLjIzMS4xMjEuMTg0Lm5pcC5pbwp2Y2FwLmFwcGxpY2F0aW9uLnVyaXNbMF06IGVudGVycHJpc2UtYXBwLTUyNTIxMDgzOS1pbnZlbnRvcnkuMjAuMjMxLjEyMS4xODQubmlwLmlvCnZjYXAuYXBwbGljYXRpb24udmVyc2lvbjogMTE2ZjdhODYtNzU0My00ZDliLWEyZTUtY2FkNzllYmEwNmEwCnZjYXAuYXBwbGljYXRpb24uYXBwbGljYXRpb25fbmFtZTogaW52ZW50b3J5CnZjYXAuYXBwbGljYXRpb24uYXBwbGljYXRpb25fdXJpczogZW50ZXJwcmlzZS1hcHAtNTI1MjEwODM5LWludmVudG9yeS4yMC4yMzEuMTIxLjE4NC5uaXAuaW8KdmNhcC5hcHBsaWNhdGlvbi5hcHBsaWNhdGlvbl91cmlzWzBdOiBlbnRlcnByaXNlLWFwcC01MjUyMTA4MzktaW52ZW50b3J5LjIwLjIzMS4xMjEuMTg0Lm5pcC5pbwp2Y2FwLmFwcGxpY2F0aW9uLm5hbWU6IGludmVudG9yeQp2Y2FwLmFwcGxpY2F0aW9uLnNwYWNlX2lkOiAzMDJmZmUwYy0zODNkLTQ0Y2EtODcyYi1hZjc3YmM1OWY2M2YKdmNhcC5hcHBsaWNhdGlvbi51c2Vyczog
+    kind: Secret
+    metadata:
+      creationTimestamp: null
+      name: inventory-vcapasspringbootproperties
+    type: Opaque
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      creationTimestamp: null
+      labels:
+        move2kube.konveyor.io/service: customers
+      name: customers
+    spec:
+      progressDeadlineSeconds: 600
+      replicas: ${{COMMON_REPLICAS}}
+      revisionHistoryLimit: 10
+      selector:
+        matchLabels:
+          move2kube.konveyor.io/service: customers
+      strategy:
+        rollingUpdate:
+          maxSurge: 25%
+          maxUnavailable: 25%
+        type: RollingUpdate
+      template:
+        metadata:
+          creationTimestamp: null
+          labels:
+            move2kube.konveyor.io/service: customers
+          name: customers
+        spec:
+          containers:
+            - env:
+                - name: VCAP_SERVICES
+                  valueFrom:
+                    secretKeyRef:
+                      key: VCAP_SERVICES
+                      name: customers-vcapasenv
+                - name: VCAP_APPLICATION
+                  valueFrom:
+                    secretKeyRef:
+                      key: VCAP_APPLICATION
+                      name: customers-vcapasenv
+                - name: SPRING_CONFIG_IMPORT
+                  value: /vcap/vcap-properties.yaml
+              image: quay.io/jobinl400ey/customers:latest
+              imagePullPolicy: Always
+              name: customers
+              ports:
+                - containerPort: 8080
+                  protocol: TCP
+              resources:
+                requests:
+                  ephemeral-storage: 1024M
+                  memory: 1024M
+              terminationMessagePath: /dev/termination-log
+              terminationMessagePolicy: File
+              volumeMounts:
+                - mountPath: /vcap
+                  name: vcapsecretvolume
+          dnsPolicy: ClusterFirst
+          imagePullSecrets:
+            - name: quay-io-imagepullsecret
+          restartPolicy: Always
+          schedulerName: default-scheduler
+          securityContext: {}
+          terminationGracePeriodSeconds: 30
+          volumes:
+            - name: vcapsecretvolume
+              secret:
+                defaultMode: 420
+                secretName: customers-vcapasspringbootproperties
+    status: {}
+  - apiVersion: v1
+    data:
+      VCAP_APPLICATION: eyJhcHBsaWNhdGlvbl9pZCI6IjQ5YTYwY2RiLWJlMGYtNDA3Mi05YWUwLWM0Y2ExMzE5NmIwNiIsImFwcGxpY2F0aW9uX25hbWUiOiJjdXN0b21lcnMiLCJhcHBsaWNhdGlvbl91cmlzIjpbImVudGVycHJpc2UtYXBwLTUyNTIxMDgzOS1jdXN0b21lcnMuMjAuMjMxLjEyMS4xODQubmlwLmlvIl0sImFwcGxpY2F0aW9uX3ZlcnNpb24iOiIwNzYzMTMwNC0xNzViLTQxYjgtODUwOC1kMmM4NmMwYWQ5NGQiLCJjZl9hcGkiOiJodHRwczovL2FwaS4yMC4yMzEuMTIxLjE4NC5uaXAuaW8iLCJsaW1pdHMiOnsiZGlzayI6MTAyNCwiZmRzIjoxNjM4NCwibWVtIjoxMDI0fSwibmFtZSI6ImN1c3RvbWVycyIsInNwYWNlX2lkIjoiMzAyZmZlMGMtMzgzZC00NGNhLTg3MmItYWY3N2JjNTlmNjNmIiwic3BhY2VfbmFtZSI6ImVudGVycHJpc2UiLCJ1cmlzIjpbImVudGVycHJpc2UtYXBwLTUyNTIxMDgzOS1jdXN0b21lcnMuMjAuMjMxLjEyMS4xODQubmlwLmlvIl0sInVzZXJzIjpudWxsLCJ2ZXJzaW9uIjoiMDc2MzEzMDQtMTc1Yi00MWI4LTg1MDgtZDJjODZjMGFkOTRkIn0=
+      VCAP_SERVICES: e30=
+    kind: Secret
+    metadata:
+      creationTimestamp: null
+      name: customers-vcapasenv
+    type: Opaque
+  - apiVersion: v1
+    data:
+      vcap-properties.yaml: dmNhcC5hcHBsaWNhdGlvbi5saW1pdHMuZGlzazogMTAyNAp2Y2FwLmFwcGxpY2F0aW9uLmxpbWl0cy5mZHM6IDE2Mzg0CnZjYXAuYXBwbGljYXRpb24ubGltaXRzLm1lbTogMTAyNAp2Y2FwLmFwcGxpY2F0aW9uLm5hbWU6IGN1c3RvbWVycwp2Y2FwLmFwcGxpY2F0aW9uLnNwYWNlX2lkOiAzMDJmZmUwYy0zODNkLTQ0Y2EtODcyYi1hZjc3YmM1OWY2M2YKdmNhcC5hcHBsaWNhdGlvbi5zcGFjZV9uYW1lOiBlbnRlcnByaXNlCnZjYXAuYXBwbGljYXRpb24udXJpczogZW50ZXJwcmlzZS1hcHAtNTI1MjEwODM5LWN1c3RvbWVycy4yMC4yMzEuMTIxLjE4NC5uaXAuaW8KdmNhcC5hcHBsaWNhdGlvbi51cmlzWzBdOiBlbnRlcnByaXNlLWFwcC01MjUyMTA4MzktY3VzdG9tZXJzLjIwLjIzMS4xMjEuMTg0Lm5pcC5pbwp2Y2FwLmFwcGxpY2F0aW9uLmFwcGxpY2F0aW9uX2lkOiA0OWE2MGNkYi1iZTBmLTQwNzItOWFlMC1jNGNhMTMxOTZiMDYKdmNhcC5hcHBsaWNhdGlvbi5hcHBsaWNhdGlvbl92ZXJzaW9uOiAwNzYzMTMwNC0xNzViLTQxYjgtODUwOC1kMmM4NmMwYWQ5NGQKdmNhcC5hcHBsaWNhdGlvbi5jZl9hcGk6IGh0dHBzOi8vYXBpLjIwLjIzMS4xMjEuMTg0Lm5pcC5pbwp2Y2FwLmFwcGxpY2F0aW9uLnVzZXJzOiAKdmNhcC5hcHBsaWNhdGlvbi52ZXJzaW9uOiAwNzYzMTMwNC0xNzViLTQxYjgtODUwOC1kMmM4NmMwYWQ5NGQKdmNhcC5hcHBsaWNhdGlvbi5hcHBsaWNhdGlvbl9uYW1lOiBjdXN0b21lcnMKdmNhcC5hcHBsaWNhdGlvbi5hcHBsaWNhdGlvbl91cmlzOiBlbnRlcnByaXNlLWFwcC01MjUyMTA4MzktY3VzdG9tZXJzLjIwLjIzMS4xMjEuMTg0Lm5pcC5pbwp2Y2FwLmFwcGxpY2F0aW9uLmFwcGxpY2F0aW9uX3VyaXNbMF06IGVudGVycHJpc2UtYXBwLTUyNTIxMDgzOS1jdXN0b21lcnMuMjAuMjMxLjEyMS4xODQubmlwLmlv
+    kind: Secret
+    metadata:
+      creationTimestamp: null
+      name: customers-vcapasspringbootproperties
+    type: Opaque
+  - apiVersion: v1
+    kind: Service
+    metadata:
+      creationTimestamp: null
+      labels:
+        move2kube.konveyor.io/service: frontend
+      name: frontend
+    spec:
+      internalTrafficPolicy: Cluster
+      ports:
+        - name: port-8080
+          port: 8080
+          protocol: TCP
+          targetPort: 8080
+      selector:
+        move2kube.konveyor.io/service: frontend
+      sessionAffinity: None
+      type: ClusterIP
+    status:
+      loadBalancer: {}
+  - apiVersion: image.openshift.io/v1
+    kind: ImageStream
+    metadata:
+      creationTimestamp: null
+      labels:
+        move2kube.konveyor.io/service: orders-latest
+      name: orders-latest
+    spec:
+      lookupPolicy:
+        local: false
+      tags:
+        - annotations: null
+          from:
+            kind: DockerImage
+            name: orders
+          generation: null
+          importPolicy: {}
+          name: latest
+          referencePolicy:
+            type: ""
+    status:
+      dockerImageRepository: ""
+  - apiVersion: v1
+    data:
+      VCAP_APPLICATION: eyJhcHBsaWNhdGlvbl9pZCI6IjE3MmQ2MGU1LWZhNDEtNDU1YS1iN2QzLTBhOTBlN2E4YTQzZCIsImFwcGxpY2F0aW9uX25hbWUiOiJvcmRlcnMiLCJhcHBsaWNhdGlvbl91cmlzIjpbImVudGVycHJpc2UtYXBwLTUyNTIxMDgzOS1vcmRlcnMuMjAuMjMxLjEyMS4xODQubmlwLmlvIl0sImFwcGxpY2F0aW9uX3ZlcnNpb24iOiI3ODg0YTEyMC0wNDBhLTQ0NGMtYmFmMi1iODhkNTg4OGQ3MjciLCJjZl9hcGkiOiJodHRwczovL2FwaS4yMC4yMzEuMTIxLjE4NC5uaXAuaW8iLCJsaW1pdHMiOnsiZGlzayI6MTAyNCwiZmRzIjoxNjM4NCwibWVtIjoxMDI0fSwibmFtZSI6Im9yZGVycyIsInNwYWNlX2lkIjoiMzAyZmZlMGMtMzgzZC00NGNhLTg3MmItYWY3N2JjNTlmNjNmIiwic3BhY2VfbmFtZSI6ImVudGVycHJpc2UiLCJ1cmlzIjpbImVudGVycHJpc2UtYXBwLTUyNTIxMDgzOS1vcmRlcnMuMjAuMjMxLjEyMS4xODQubmlwLmlvIl0sInVzZXJzIjpudWxsLCJ2ZXJzaW9uIjoiNzg4NGExMjAtMDQwYS00NDRjLWJhZjItYjg4ZDU4ODhkNzI3In0=
+      VCAP_SERVICES: e30=
+    kind: Secret
+    metadata:
+      creationTimestamp: null
+      name: orders-vcapasenv
+    type: Opaque
+  - apiVersion: image.openshift.io/v1
+    kind: ImageStream
+    metadata:
+      creationTimestamp: null
+      labels:
+        move2kube.konveyor.io/service: customers-latest
+      name: customers-latest
+    spec:
+      lookupPolicy:
+        local: false
+      tags:
+        - annotations: null
+          from:
+            kind: DockerImage
+            name: customers
+          generation: null
+          importPolicy: {}
+          name: latest
+          referencePolicy:
+            type: ""
+    status:
+      dockerImageRepository: ""
+  - apiVersion: v1
+    kind: Service
+    metadata:
+      creationTimestamp: null
+      labels:
+        move2kube.konveyor.io/service: customers
+      name: customers
+    spec:
+      internalTrafficPolicy: Cluster
+      ports:
+        - name: port-8080
+          port: 8080
+          protocol: TCP
+          targetPort: 8080
+      selector:
+        move2kube.konveyor.io/service: customers
+      sessionAffinity: None
+      type: ClusterIP
+    status:
+      loadBalancer: {}
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      creationTimestamp: null
+      labels:
+        move2kube.konveyor.io/service: gateway
+      name: gateway
+    spec:
+      progressDeadlineSeconds: 600
+      replicas: ${{COMMON_REPLICAS}}
+      revisionHistoryLimit: 10
+      selector:
+        matchLabels:
+          move2kube.konveyor.io/service: gateway
+      strategy:
+        rollingUpdate:
+          maxSurge: 25%
+          maxUnavailable: 25%
+        type: RollingUpdate
+      template:
+        metadata:
+          creationTimestamp: null
+          labels:
+            move2kube.konveyor.io/service: gateway
+          name: gateway
+        spec:
+          containers:
+            - env:
+                - name: JBP_CONFIG_SPRING_AUTO_RECONFIGURATION
+                  value: '{ enabled: false }'
+                - name: SPRING_PROFILES_ACTIVE
+                  value: dev
+                - name: VCAP_SERVICES
+                  valueFrom:
+                    secretKeyRef:
+                      key: VCAP_SERVICES
+                      name: gateway-vcapasenv
+                - name: VCAP_APPLICATION
+                  valueFrom:
+                    secretKeyRef:
+                      key: VCAP_APPLICATION
+                      name: gateway-vcapasenv
+                - name: ENTERPRISE_APP_INVENTORY_URL
+                  value: http://enterprise-app-525210839-inventory.20.231.121.184.nip.io/products
+                - name: ENTERPRISE_APP_ORDERS_URL
+                  value: http://enterprise-app-525210839-orders.20.231.121.184.nip.io/orders
+                - name: ENTERPRISE_APP_CUSTOMERS_URL
+                  value: http://enterprise-app-525210839-customers.20.231.121.184.nip.io/customers
+                - name: SPRING_CONFIG_IMPORT
+                  value: /vcap/vcap-properties.yaml
+              image: quay.io/jobinl400ey/gateway:latest
+              imagePullPolicy: Always
+              name: gateway
+              ports:
+                - containerPort: 8080
+                  protocol: TCP
+              resources:
+                requests:
+                  ephemeral-storage: 1024M
+                  memory: 1024M
+              terminationMessagePath: /dev/termination-log
+              terminationMessagePolicy: File
+              volumeMounts:
+                - mountPath: /vcap
+                  name: vcapsecretvolume
+          dnsPolicy: ClusterFirst
+          imagePullSecrets:
+            - name: quay-io-imagepullsecret
+          restartPolicy: Always
+          schedulerName: default-scheduler
+          securityContext: {}
+          terminationGracePeriodSeconds: 30
+          volumes:
+            - name: vcapsecretvolume
+              secret:
+                defaultMode: 420
+                secretName: gateway-vcapasspringbootproperties
+    status: {}
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      creationTimestamp: null
+      labels:
+        move2kube.konveyor.io/service: orders
+      name: orders
+    spec:
+      progressDeadlineSeconds: 600
+      replicas: ${{COMMON_REPLICAS}}
+      revisionHistoryLimit: 10
+      selector:
+        matchLabels:
+          move2kube.konveyor.io/service: orders
+      strategy:
+        rollingUpdate:
+          maxSurge: 25%
+          maxUnavailable: 25%
+        type: RollingUpdate
+      template:
+        metadata:
+          creationTimestamp: null
+          labels:
+            move2kube.konveyor.io/service: orders
+          name: orders
+        spec:
+          containers:
+            - env:
+                - name: VCAP_APPLICATION
+                  valueFrom:
+                    secretKeyRef:
+                      key: VCAP_APPLICATION
+                      name: orders-vcapasenv
+                - name: VCAP_SERVICES
+                  valueFrom:
+                    secretKeyRef:
+                      key: VCAP_SERVICES
+                      name: orders-vcapasenv
+                - name: SPRING_CONFIG_IMPORT
+                  value: /vcap/vcap-properties.yaml
+              image: quay.io/jobinl400ey/orders:latest
+              imagePullPolicy: Always
+              name: orders
+              ports:
+                - containerPort: 8080
+                  protocol: TCP
+              resources:
+                requests:
+                  ephemeral-storage: 1024M
+                  memory: 1024M
+              terminationMessagePath: /dev/termination-log
+              terminationMessagePolicy: File
+              volumeMounts:
+                - mountPath: /vcap
+                  name: vcapsecretvolume
+          dnsPolicy: ClusterFirst
+          imagePullSecrets:
+            - name: quay-io-imagepullsecret
+          restartPolicy: Always
+          schedulerName: default-scheduler
+          securityContext: {}
+          terminationGracePeriodSeconds: 30
+          volumes:
+            - name: vcapsecretvolume
+              secret:
+                defaultMode: 420
+                secretName: orders-vcapasspringbootproperties
+    status: {}
+  - apiVersion: v1
+    data:
+      .dockerconfigjson: ewoJImF1dGhzIjogewoJCSJxdWF5LmlvIjogewoJCQkiYXV0aCI6ICJhbTlpYVc1c05EQXdaWGs2U213ME15UnphR0ZyZEdreE9UazAiCgkJfQoJfQp9
+    kind: Secret
+    metadata:
+      creationTimestamp: null
+      name: quay-io-imagepullsecret
+    type: kubernetes.io/dockerconfigjson
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      creationTimestamp: null
+      labels:
+        move2kube.konveyor.io/service: frontend
+      name: frontend
+    spec:
+      progressDeadlineSeconds: 600
+      replicas: ${{COMMON_REPLICAS}}
+      revisionHistoryLimit: 10
+      selector:
+        matchLabels:
+          move2kube.konveyor.io/service: frontend
+      strategy:
+        rollingUpdate:
+          maxSurge: 25%
+          maxUnavailable: 25%
+        type: RollingUpdate
+      template:
+        metadata:
+          creationTimestamp: null
+          labels:
+            move2kube.konveyor.io/service: frontend
+          name: frontend
+        spec:
+          containers:
+            - env:
+                - name: VCAP_SERVICES
+                  valueFrom:
+                    secretKeyRef:
+                      key: VCAP_SERVICES
+                      name: frontend-vcapasenv
+                - name: VCAP_APPLICATION
+                  valueFrom:
+                    secretKeyRef:
+                      key: VCAP_APPLICATION
+                      name: frontend-vcapasenv
+                - name: ENTERPRISE_APP_GATEWAY_URL
+                  value: http://enterprise-app-525210839-gateway.20.231.121.184.nip.io
+              image: quay.io/jobinl400ey/frontend:latest
+              imagePullPolicy: Always
+              name: frontend
+              ports:
+                - containerPort: 8080
+                  protocol: TCP
+              resources:
+                requests:
+                  ephemeral-storage: 1024M
+                  memory: 2048M
+              terminationMessagePath: /dev/termination-log
+              terminationMessagePolicy: File
+          dnsPolicy: ClusterFirst
+          imagePullSecrets:
+            - name: quay-io-imagepullsecret
+          restartPolicy: Always
+          schedulerName: default-scheduler
+          securityContext: {}
+          terminationGracePeriodSeconds: 30
+    status: {}
+  - apiVersion: image.openshift.io/v1
+    kind: ImageStream
+    metadata:
+      creationTimestamp: null
+      labels:
+        move2kube.konveyor.io/service: frontend-latest
+      name: frontend-latest
+    spec:
+      lookupPolicy:
+        local: false
+      tags:
+        - annotations: null
+          from:
+            kind: DockerImage
+            name: frontend
+          generation: null
+          importPolicy: {}
+          name: latest
+          referencePolicy:
+            type: ""
+    status:
+      dockerImageRepository: ""
+  - apiVersion: v1
+    data:
+      VCAP_APPLICATION: eyJhcHBsaWNhdGlvbl9pZCI6IjQ0YTQ1OGM0LWRlYTAtNDI1Yi04OWFjLWFiOTVkOWQxMmFmNyIsImFwcGxpY2F0aW9uX25hbWUiOiJnYXRld2F5IiwiYXBwbGljYXRpb25fdXJpcyI6WyJlbnRlcnByaXNlLWFwcC01MjUyMTA4MzktZ2F0ZXdheS4yMC4yMzEuMTIxLjE4NC5uaXAuaW8iXSwiYXBwbGljYXRpb25fdmVyc2lvbiI6IjUzYzJkZmQ0LWEyZDktNDZlZS1iZmE2LWFmYjRjODE1NTcyNCIsImNmX2FwaSI6Imh0dHBzOi8vYXBpLjIwLjIzMS4xMjEuMTg0Lm5pcC5pbyIsImxpbWl0cyI6eyJkaXNrIjoxMDI0LCJmZHMiOjE2Mzg0LCJtZW0iOjEwMjR9LCJuYW1lIjoiZ2F0ZXdheSIsInNwYWNlX2lkIjoiMzAyZmZlMGMtMzgzZC00NGNhLTg3MmItYWY3N2JjNTlmNjNmIiwic3BhY2VfbmFtZSI6ImVudGVycHJpc2UiLCJ1cmlzIjpbImVudGVycHJpc2UtYXBwLTUyNTIxMDgzOS1nYXRld2F5LjIwLjIzMS4xMjEuMTg0Lm5pcC5pbyJdLCJ1c2VycyI6bnVsbCwidmVyc2lvbiI6IjUzYzJkZmQ0LWEyZDktNDZlZS1iZmE2LWFmYjRjODE1NTcyNCJ9
+      VCAP_SERVICES: e30=
+    kind: Secret
+    metadata:
+      creationTimestamp: null
+      name: gateway-vcapasenv
+    type: Opaque
+  - apiVersion: v1
+    kind: Service
+    metadata:
+      creationTimestamp: null
+      labels:
+        move2kube.konveyor.io/service: orders
+      name: orders
+    spec:
+      internalTrafficPolicy: Cluster
+      ports:
+        - name: port-8080
+          port: 8080
+          protocol: TCP
+          targetPort: 8080
+      selector:
+        move2kube.konveyor.io/service: orders
+      sessionAffinity: None
+      type: ClusterIP
+    status:
+      loadBalancer: {}
+parameters:
+  - name: COMMON_REPLICAS
+    value: "2"

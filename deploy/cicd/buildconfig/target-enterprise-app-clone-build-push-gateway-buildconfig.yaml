@@ -1,0 +1,34 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  creationTimestamp: null
+  name: target-enterprise-app-clone-build-push-gateway
+spec:
+  nodeSelector: null
+  output:
+    to:
+      kind: DockerImage
+      name: quay.io/jobinl400ey/gateway:latest
+    pushSecret:
+      name: quay-io-imagepullsecret
+  postCommit: {}
+  resources: {}
+  source:
+    git:
+      ref: main
+      uri: https://github.com/Jobinl400EY/pcf-ocp-demo
+    sourceSecret:
+      name: target-enterprise-app-git-repo-generic
+    contextDir: source/enterprise-app/gateway
+    type: Git
+  strategy:
+    dockerStrategy:
+      dockerfilePath: Dockerfile
+    type: Docker
+  triggers:
+    - generic:
+        secretReference:
+          name: target-enterprise-app-web-hook-gateway
+      type: Generic
+status:
+  lastVersion: 0

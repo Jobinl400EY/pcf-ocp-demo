@@ -1,0 +1,224 @@
+apiVersion: template.openshift.io/v1
+kind: Template
+metadata:
+  name: target-enterprise-app-template
+  generatename: ""
+  namespace: ""
+  selflink: ""
+  uid: ""
+  resourceversion: ""
+  generation: 0
+  creationtimestamp: "0001-01-01T00:00:00Z"
+  deletiontimestamp: null
+  deletiongraceperiodseconds: null
+  labels: {}
+  annotations: {}
+  ownerreferences: []
+  finalizers: []
+  clustername: ""
+  managedfields: []
+objects:
+  - apiVersion: build.openshift.io/v1
+    kind: BuildConfig
+    metadata:
+      creationTimestamp: null
+      name: target-enterprise-app-clone-build-push-customers
+    spec:
+      nodeSelector: null
+      output:
+        to:
+          kind: ImageStreamTag
+          name: customers-latest:latest
+      postCommit: {}
+      resources: {}
+      source:
+        git:
+          ref: main
+          uri: ""
+        sourceSecret:
+          name: target-enterprise-app-git-repo-generic
+        type: Git
+      strategy:
+        dockerStrategy:
+          dockerfilePath: '<TODO: insert path to the Dockerfile>'
+        type: Docker
+      triggers:
+        - generic:
+            secretReference:
+              name: target-enterprise-app-web-hook-customers
+          type: Generic
+    status:
+      lastVersion: 0
+  - apiVersion: build.openshift.io/v1
+    kind: BuildConfig
+    metadata:
+      creationTimestamp: null
+      name: target-enterprise-app-clone-build-push-frontend
+    spec:
+      nodeSelector: null
+      output:
+        to:
+          kind: ImageStreamTag
+          name: frontend-latest:latest
+      postCommit: {}
+      resources: {}
+      source:
+        git:
+          ref: main
+          uri: ""
+        sourceSecret:
+          name: target-enterprise-app-git-repo-generic
+        type: Git
+      strategy:
+        dockerStrategy:
+          dockerfilePath: '<TODO: insert path to the Dockerfile>'
+        type: Docker
+      triggers:
+        - generic:
+            secretReference:
+              name: target-enterprise-app-web-hook-frontend
+          type: Generic
+    status:
+      lastVersion: 0
+  - apiVersion: build.openshift.io/v1
+    kind: BuildConfig
+    metadata:
+      creationTimestamp: null
+      name: target-enterprise-app-clone-build-push-inventory
+    spec:
+      nodeSelector: null
+      output:
+        to:
+          kind: ImageStreamTag
+          name: inventory-latest:latest
+      postCommit: {}
+      resources: {}
+      source:
+        git:
+          ref: main
+          uri: ""
+        sourceSecret:
+          name: target-enterprise-app-git-repo-generic
+        type: Git
+      strategy:
+        dockerStrategy:
+          dockerfilePath: '<TODO: insert path to the Dockerfile>'
+        type: Docker
+      triggers:
+        - generic:
+            secretReference:
+              name: target-enterprise-app-web-hook-inventory
+          type: Generic
+    status:
+      lastVersion: 0
+  - apiVersion: v1
+    data:
+      ssh-privatekey: PFRPRE86IGluc2VydCB0aGUgcHJpdmF0ZSBzc2gga2V5IGZvciB5b3VyIGdpdCByZXBvPg==
+    kind: Secret
+    metadata:
+      creationTimestamp: null
+      name: target-enterprise-app-git-repo-generic
+    type: kubernetes.io/ssh-auth
+  - apiVersion: v1
+    data:
+      WebHookSecretKey: OWNiMzUzNzNkZDNkNmUzYQ==
+    kind: Secret
+    metadata:
+      creationTimestamp: null
+      name: target-enterprise-app-web-hook-customers
+    type: Opaque
+  - apiVersion: v1
+    data:
+      WebHookSecretKey: NjExMTgwMWFhYmVlNTljZg==
+    kind: Secret
+    metadata:
+      creationTimestamp: null
+      name: target-enterprise-app-web-hook-frontend
+    type: Opaque
+  - apiVersion: v1
+    data:
+      WebHookSecretKey: NGMzZTFkZTcyNjFmNWYxNA==
+    kind: Secret
+    metadata:
+      creationTimestamp: null
+      name: target-enterprise-app-web-hook-gateway
+    type: Opaque
+  - apiVersion: build.openshift.io/v1
+    kind: BuildConfig
+    metadata:
+      creationTimestamp: null
+      name: target-enterprise-app-clone-build-push-gateway
+    spec:
+      nodeSelector: null
+      output:
+        to:
+          kind: ImageStreamTag
+          name: gateway-latest:latest
+      postCommit: {}
+      resources: {}
+      source:
+        git:
+          ref: main
+          uri: ""
+        sourceSecret:
+          name: target-enterprise-app-git-repo-generic
+        type: Git
+      strategy:
+        dockerStrategy:
+          dockerfilePath: '<TODO: insert path to the Dockerfile>'
+        type: Docker
+      triggers:
+        - generic:
+            secretReference:
+              name: target-enterprise-app-web-hook-gateway
+          type: Generic
+    status:
+      lastVersion: 0
+  - apiVersion: build.openshift.io/v1
+    kind: BuildConfig
+    metadata:
+      creationTimestamp: null
+      name: target-enterprise-app-clone-build-push-orders
+    spec:
+      nodeSelector: null
+      output:
+        to:
+          kind: ImageStreamTag
+          name: orders-latest:latest
+      postCommit: {}
+      resources: {}
+      source:
+        git:
+          ref: main
+          uri: ""
+        sourceSecret:
+          name: target-enterprise-app-git-repo-generic
+        type: Git
+      strategy:
+        dockerStrategy:
+          dockerfilePath: '<TODO: insert path to the Dockerfile>'
+        type: Docker
+      triggers:
+        - generic:
+            secretReference:
+              name: target-enterprise-app-web-hook-orders
+          type: Generic
+    status:
+      lastVersion: 0
+  - apiVersion: v1
+    data:
+      WebHookSecretKey: Y2UxYjk4OGQ2N2Y4MmMyZA==
+    kind: Secret
+    metadata:
+      creationTimestamp: null
+      name: target-enterprise-app-web-hook-inventory
+    type: Opaque
+  - apiVersion: v1
+    data:
+      WebHookSecretKey: NGI5Y2ZjMTE0YTM2YjdmZQ==
+    kind: Secret
+    metadata:
+      creationTimestamp: null
+      name: target-enterprise-app-web-hook-orders
+    type: Opaque
+parameters: []

@@ -1,0 +1,51 @@
+
+---
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+    creationTimestamp: null
+    labels:
+        move2kube.konveyor.io/service: customers
+    name: customers
+spec:
+    template:
+        metadata:
+            creationTimestamp: null
+        spec:
+            containers:
+                - env:
+                    - name: VCAP_SERVICES
+                      valueFrom:
+                        secretKeyRef:
+                            key: VCAP_SERVICES
+                            name: customers-vcapasenv
+                    - name: VCAP_APPLICATION
+                      valueFrom:
+                        secretKeyRef:
+                            key: VCAP_APPLICATION
+                            name: customers-vcapasenv
+                    - name: SPRING_CONFIG_IMPORT
+                      value: /vcap/vcap-properties.yaml
+                  image: quay.io/jobinl400ey/customers:latest
+                  imagePullPolicy: Always
+                  name: customers
+                  ports:
+                    - containerPort: 8080
+                  resources:
+                    requests:
+                        ephemeral-storage: 1024M
+                        memory: 1024M
+                  volumeMounts:
+                    - mountPath: /vcap
+                      name: vcapsecretvolume
+            imagePullSecrets:
+                - name: quay-io-imagepullsecret
+            restartPolicy: Always
+            securityContext: {}
+            volumes:
+                - name: vcapsecretvolume
+                  secret:
+                    secretName: customers-vcapasspringbootproperties
+status: {}
+
+...

@@ -1,0 +1,592 @@
+apiVersion: move2kube.konveyor.io/v1alpha1
+kind: CfApps
+spec:
+  applications:
+    - application:
+        guid: 1f2fc4e7-64e9-4bf1-aa6b-69169ddfacb1
+        createdat: "2023-01-31T22:14:23Z"
+        updatedat: "2023-01-31T22:14:27Z"
+        name: cf-nodejs
+        memory: 512
+        instances: 1
+        diskquota: 1024
+        spaceguid: ac7ae7a9-02e8-4f4e-b578-c548535fc324
+        stackguid: 0d18706c-b06a-47af-9c29-80c0a3ac8627
+        state: STARTED
+        packagestate: STAGED
+        command: ""
+        buildpack: ""
+        detectedbuildpack: nodejs
+        detectedbuildpackguid: 709658de-cbf7-49d6-9211-94815d68dc0f
+        healthcheckhttpendpoint: ""
+        healthchecktype: port
+        healthchecktimeout: 0
+        diego: true
+        enablessh: true
+        detectedstartcommand: npm start
+        dockerimage: ""
+        dockercredentialsjson: {}
+        dockercredentials:
+          username: ""
+          password: ""
+        environment: {}
+        stagingfailedreason: ""
+        stagingfaileddescription: ""
+        ports:
+          - 8080
+        spaceurl: /v2/spaces/ac7ae7a9-02e8-4f4e-b578-c548535fc324
+        spacedata:
+          meta:
+            guid: ac7ae7a9-02e8-4f4e-b578-c548535fc324
+            url: /v2/spaces/ac7ae7a9-02e8-4f4e-b578-c548535fc324
+            createdat: "2023-01-31T22:14:04Z"
+            updatedat: "2023-01-31T22:14:04Z"
+          entity:
+            guid: ac7ae7a9-02e8-4f4e-b578-c548535fc324
+            createdat: ""
+            updatedat: ""
+            name: demo
+            organizationguid: f7a5c8b1-357a-4180-b06a-c6da773d4df2
+            orgurl: /v2/organizations/f7a5c8b1-357a-4180-b06a-c6da773d4df2
+            orgdata:
+              meta:
+                guid: f7a5c8b1-357a-4180-b06a-c6da773d4df2
+                url: /v2/organizations/f7a5c8b1-357a-4180-b06a-c6da773d4df2
+                createdat: "2023-01-30T20:33:42Z"
+                updatedat: "2023-01-30T20:33:42Z"
+              entity:
+                guid: f7a5c8b1-357a-4180-b06a-c6da773d4df2
+                createdat: ""
+                updatedat: ""
+                name: system
+                status: active
+                quotadefinitionguid: 482604ec-9bd6-45e1-848f-20ba4be2893b
+                defaultisolationsegmentguid: ""
+            quotadefinitionguid: ""
+            isolationsegmentguid: ""
+            allowssh: true
+        packageupdatedat: "2023-01-31T22:14:23Z"
+      environment:
+        environment: {}
+        stagingenv: {}
+        runningenv: {}
+        systemenv:
+          VCAP_SERVICES: '{}'
+        applicationenv:
+          VCAP_APPLICATION: '{"application_id":"1f2fc4e7-64e9-4bf1-aa6b-69169ddfacb1","application_name":"cf-nodejs","application_uris":["cf-nodejs-balanced-dugong.20.231.121.184.nip.io"],"application_version":"c58b4cf2-cfc6-42ac-a395-19d6335aabbc","cf_api":"https://api.20.231.121.184.nip.io","limits":{"disk":1024,"fds":16384,"mem":512},"name":"cf-nodejs","space_id":"ac7ae7a9-02e8-4f4e-b578-c548535fc324","space_name":"demo","uris":["cf-nodejs-balanced-dugong.20.231.121.184.nip.io"],"users":null,"version":"c58b4cf2-cfc6-42ac-a395-19d6335aabbc"}'
+    - application:
+        guid: 6451885d-85c4-4555-bd15-edbb437c4492
+        createdat: "2023-01-31T22:16:37Z"
+        updatedat: "2023-01-31T22:16:44Z"
+        name: cfnodejsapp
+        memory: 256
+        instances: 1
+        diskquota: 1024
+        spaceguid: ac7ae7a9-02e8-4f4e-b578-c548535fc324
+        stackguid: 0d18706c-b06a-47af-9c29-80c0a3ac8627
+        state: STARTED
+        packagestate: STAGED
+        command: ""
+        buildpack: ""
+        detectedbuildpack: nodejs
+        detectedbuildpackguid: 709658de-cbf7-49d6-9211-94815d68dc0f
+        healthcheckhttpendpoint: ""
+        healthchecktype: port
+        healthchecktimeout: 0
+        diego: true
+        enablessh: true
+        detectedstartcommand: npm start
+        dockerimage: ""
+        dockercredentialsjson: {}
+        dockercredentials:
+          username: ""
+          password: ""
+        environment: {}
+        stagingfailedreason: ""
+        stagingfaileddescription: ""
+        ports:
+          - 8080
+        spaceurl: /v2/spaces/ac7ae7a9-02e8-4f4e-b578-c548535fc324
+        spacedata:
+          meta:
+            guid: ac7ae7a9-02e8-4f4e-b578-c548535fc324
+            url: /v2/spaces/ac7ae7a9-02e8-4f4e-b578-c548535fc324
+            createdat: "2023-01-31T22:14:04Z"
+            updatedat: "2023-01-31T22:14:04Z"
+          entity:
+            guid: ac7ae7a9-02e8-4f4e-b578-c548535fc324
+            createdat: ""
+            updatedat: ""
+            name: demo
+            organizationguid: f7a5c8b1-357a-4180-b06a-c6da773d4df2
+            orgurl: /v2/organizations/f7a5c8b1-357a-4180-b06a-c6da773d4df2
+            orgdata:
+              meta:
+                guid: f7a5c8b1-357a-4180-b06a-c6da773d4df2
+                url: /v2/organizations/f7a5c8b1-357a-4180-b06a-c6da773d4df2
+                createdat: "2023-01-30T20:33:42Z"
+                updatedat: "2023-01-30T20:33:42Z"
+              entity:
+                guid: f7a5c8b1-357a-4180-b06a-c6da773d4df2
+                createdat: ""
+                updatedat: ""
+                name: system
+                status: active
+                quotadefinitionguid: 482604ec-9bd6-45e1-848f-20ba4be2893b
+                defaultisolationsegmentguid: ""
+            quotadefinitionguid: ""
+            isolationsegmentguid: ""
+            allowssh: true
+        packageupdatedat: "2023-01-31T22:16:38Z"
+      environment:
+        environment: {}
+        stagingenv: {}
+        runningenv: {}
+        systemenv:
+          VCAP_SERVICES: '{}'
+        applicationenv:
+          VCAP_APPLICATION: '{"application_id":"6451885d-85c4-4555-bd15-edbb437c4492","application_name":"cfnodejsapp","application_uris":["cfnodejsapp-forgiving-eland.20.231.121.184.nip.io"],"application_version":"7d70504d-c868-4dd4-b576-41d8944ffd9e","cf_api":"https://api.20.231.121.184.nip.io","limits":{"disk":1024,"fds":16384,"mem":256},"name":"cfnodejsapp","space_id":"ac7ae7a9-02e8-4f4e-b578-c548535fc324","space_name":"demo","uris":["cfnodejsapp-forgiving-eland.20.231.121.184.nip.io"],"users":null,"version":"7d70504d-c868-4dd4-b576-41d8944ffd9e"}'
+    - application:
+        guid: 11fa8d74-83fb-4d6b-8e5a-0a0533766295
+        createdat: "2023-02-06T20:47:07Z"
+        updatedat: "2023-02-06T20:47:10Z"
+        name: cfnodejsapp
+        memory: 256
+        instances: 1
+        diskquota: 1024
+        spaceguid: 6febef3a-51c7-41f8-a2f2-565d05687661
+        stackguid: 0d18706c-b06a-47af-9c29-80c0a3ac8627
+        state: STARTED
+        packagestate: STAGED
+        command: ""
+        buildpack: ""
+        detectedbuildpack: nodejs
+        detectedbuildpackguid: 709658de-cbf7-49d6-9211-94815d68dc0f
+        healthcheckhttpendpoint: ""
+        healthchecktype: port
+        healthchecktimeout: 0
+        diego: true
+        enablessh: true
+        detectedstartcommand: npm start
+        dockerimage: ""
+        dockercredentialsjson: {}
+        dockercredentials:
+          username: ""
+          password: ""
+        environment: {}
+        stagingfailedreason: ""
+        stagingfaileddescription: ""
+        ports:
+          - 8080
+        spaceurl: /v2/spaces/6febef3a-51c7-41f8-a2f2-565d05687661
+        spacedata:
+          meta:
+            guid: 6febef3a-51c7-41f8-a2f2-565d05687661
+            url: /v2/spaces/6febef3a-51c7-41f8-a2f2-565d05687661
+            createdat: "2023-02-06T20:46:53Z"
+            updatedat: "2023-02-06T20:46:53Z"
+          entity:
+            guid: 6febef3a-51c7-41f8-a2f2-565d05687661
+            createdat: ""
+            updatedat: ""
+            name: argotest
+            organizationguid: f7a5c8b1-357a-4180-b06a-c6da773d4df2
+            orgurl: /v2/organizations/f7a5c8b1-357a-4180-b06a-c6da773d4df2
+            orgdata:
+              meta:
+                guid: f7a5c8b1-357a-4180-b06a-c6da773d4df2
+                url: /v2/organizations/f7a5c8b1-357a-4180-b06a-c6da773d4df2
+                createdat: "2023-01-30T20:33:42Z"
+                updatedat: "2023-01-30T20:33:42Z"
+              entity:
+                guid: f7a5c8b1-357a-4180-b06a-c6da773d4df2
+                createdat: ""
+                updatedat: ""
+                name: system
+                status: active
+                quotadefinitionguid: 482604ec-9bd6-45e1-848f-20ba4be2893b
+                defaultisolationsegmentguid: ""
+            quotadefinitionguid: ""
+            isolationsegmentguid: ""
+            allowssh: true
+        packageupdatedat: "2023-02-06T20:47:07Z"
+      environment:
+        environment: {}
+        stagingenv: {}
+        runningenv: {}
+        systemenv:
+          VCAP_SERVICES: '{}'
+        applicationenv:
+          VCAP_APPLICATION: '{"application_id":"11fa8d74-83fb-4d6b-8e5a-0a0533766295","application_name":"cfnodejsapp","application_uris":["cfnodejsapp-appreciative-bushbuck.20.231.121.184.nip.io"],"application_version":"5c0a7a35-591e-409b-937b-18de201b4700","cf_api":"https://api.20.231.121.184.nip.io","limits":{"disk":1024,"fds":16384,"mem":256},"name":"cfnodejsapp","space_id":"6febef3a-51c7-41f8-a2f2-565d05687661","space_name":"argotest","uris":["cfnodejsapp-appreciative-bushbuck.20.231.121.184.nip.io"],"users":null,"version":"5c0a7a35-591e-409b-937b-18de201b4700"}'
+    - application:
+        guid: 49a60cdb-be0f-4072-9ae0-c4ca13196b06
+        createdat: "2023-02-07T22:23:17Z"
+        updatedat: "2023-02-07T22:23:30Z"
+        name: customers
+        memory: 1024
+        instances: 1
+        diskquota: 1024
+        spaceguid: 302ffe0c-383d-44ca-872b-af77bc59f63f
+        stackguid: 0d18706c-b06a-47af-9c29-80c0a3ac8627
+        state: STARTED
+        packagestate: STAGED
+        command: ""
+        buildpack: https://github.com/cloudfoundry/java-buildpack
+        detectedbuildpack: java
+        detectedbuildpackguid: ""
+        healthcheckhttpendpoint: ""
+        healthchecktype: port
+        healthchecktimeout: 180
+        diego: true
+        enablessh: true
+        detectedstartcommand: 'JAVA_OPTS="-agentpath:$PWD/.java-buildpack/open_jdk_jre/bin/jvmkill-1.16.0_RELEASE=printHeapHistogram=1 -Djava.io.tmpdir=$TMPDIR -XX:ActiveProcessorCount=$(nproc) -Djava.ext.dirs=$PWD/.java-buildpack/container_security_provider:$PWD/.java-buildpack/open_jdk_jre/lib/ext -Djava.security.properties=$PWD/.java-buildpack/java_security/java.security $JAVA_OPTS -Daccess.logging.enabled=false -Dhttp.port=$PORT" && CALCULATED_MEMORY=$($PWD/.java-buildpack/open_jdk_jre/bin/java-buildpack-memory-calculator-3.13.0_RELEASE -totMemory=$MEMORY_LIMIT -loadedClasses=19629 -poolType=metaspace -stackThreads=250 -vmOptions="$JAVA_OPTS") && echo JVM Memory Configuration: $CALCULATED_MEMORY && JAVA_OPTS="$JAVA_OPTS $CALCULATED_MEMORY" && MALLOC_ARENA_MAX=2 JAVA_OPTS=$JAVA_OPTS JAVA_HOME=$PWD/.java-buildpack/open_jdk_jre exec $PWD/.java-buildpack/tomcat/bin/catalina.sh run'
+        dockerimage: ""
+        dockercredentialsjson: {}
+        dockercredentials:
+          username: ""
+          password: ""
+        environment: {}
+        stagingfailedreason: ""
+        stagingfaileddescription: ""
+        ports:
+          - 8080
+        spaceurl: /v2/spaces/302ffe0c-383d-44ca-872b-af77bc59f63f
+        spacedata:
+          meta:
+            guid: 302ffe0c-383d-44ca-872b-af77bc59f63f
+            url: /v2/spaces/302ffe0c-383d-44ca-872b-af77bc59f63f
+            createdat: "2023-02-07T22:22:48Z"
+            updatedat: "2023-02-07T22:22:48Z"
+          entity:
+            guid: 302ffe0c-383d-44ca-872b-af77bc59f63f
+            createdat: ""
+            updatedat: ""
+            name: enterprise
+            organizationguid: f7a5c8b1-357a-4180-b06a-c6da773d4df2
+            orgurl: /v2/organizations/f7a5c8b1-357a-4180-b06a-c6da773d4df2
+            orgdata:
+              meta:
+                guid: f7a5c8b1-357a-4180-b06a-c6da773d4df2
+                url: /v2/organizations/f7a5c8b1-357a-4180-b06a-c6da773d4df2
+                createdat: "2023-01-30T20:33:42Z"
+                updatedat: "2023-01-30T20:33:42Z"
+              entity:
+                guid: f7a5c8b1-357a-4180-b06a-c6da773d4df2
+                createdat: ""
+                updatedat: ""
+                name: system
+                status: active
+                quotadefinitionguid: 482604ec-9bd6-45e1-848f-20ba4be2893b
+                defaultisolationsegmentguid: ""
+            quotadefinitionguid: ""
+            isolationsegmentguid: ""
+            allowssh: true
+        packageupdatedat: "2023-02-07T22:23:20Z"
+      environment:
+        environment: {}
+        stagingenv: {}
+        runningenv: {}
+        systemenv:
+          VCAP_SERVICES: '{}'
+        applicationenv:
+          VCAP_APPLICATION: '{"application_id":"49a60cdb-be0f-4072-9ae0-c4ca13196b06","application_name":"customers","application_uris":["enterprise-app-525210839-customers.20.231.121.184.nip.io"],"application_version":"07631304-175b-41b8-8508-d2c86c0ad94d","cf_api":"https://api.20.231.121.184.nip.io","limits":{"disk":1024,"fds":16384,"mem":1024},"name":"customers","space_id":"302ffe0c-383d-44ca-872b-af77bc59f63f","space_name":"enterprise","uris":["enterprise-app-525210839-customers.20.231.121.184.nip.io"],"users":null,"version":"07631304-175b-41b8-8508-d2c86c0ad94d"}'
+    - application:
+        guid: 8735393b-a1f7-4211-a6b3-459a7c5e6749
+        createdat: "2023-02-07T22:24:41Z"
+        updatedat: "2023-02-07T22:24:51Z"
+        name: inventory
+        memory: 1024
+        instances: 1
+        diskquota: 1024
+        spaceguid: 302ffe0c-383d-44ca-872b-af77bc59f63f
+        stackguid: 0d18706c-b06a-47af-9c29-80c0a3ac8627
+        state: STARTED
+        packagestate: STAGED
+        command: ""
+        buildpack: https://github.com/cloudfoundry/java-buildpack
+        detectedbuildpack: java
+        detectedbuildpackguid: ""
+        healthcheckhttpendpoint: ""
+        healthchecktype: port
+        healthchecktimeout: 180
+        diego: true
+        enablessh: true
+        detectedstartcommand: 'JAVA_OPTS="-agentpath:$PWD/.java-buildpack/open_jdk_jre/bin/jvmkill-1.16.0_RELEASE=printHeapHistogram=1 -Djava.io.tmpdir=$TMPDIR -XX:ActiveProcessorCount=$(nproc) -Djava.ext.dirs=$PWD/.java-buildpack/container_security_provider:$PWD/.java-buildpack/open_jdk_jre/lib/ext -Djava.security.properties=$PWD/.java-buildpack/java_security/java.security $JAVA_OPTS" && CALCULATED_MEMORY=$($PWD/.java-buildpack/open_jdk_jre/bin/java-buildpack-memory-calculator-3.13.0_RELEASE -totMemory=$MEMORY_LIMIT -loadedClasses=17443 -poolType=metaspace -stackThreads=250 -vmOptions="$JAVA_OPTS") && echo JVM Memory Configuration: $CALCULATED_MEMORY && JAVA_OPTS="$JAVA_OPTS $CALCULATED_MEMORY" && MALLOC_ARENA_MAX=2 SERVER_PORT=$PORT eval exec $PWD/.java-buildpack/open_jdk_jre/bin/java $JAVA_OPTS -cp $PWD/. org.springframework.boot.loader.JarLauncher'
+        dockerimage: ""
+        dockercredentialsjson: {}
+        dockercredentials:
+          username: ""
+          password: ""
+        environment: {}
+        stagingfailedreason: ""
+        stagingfaileddescription: ""
+        ports:
+          - 8080
+        spaceurl: /v2/spaces/302ffe0c-383d-44ca-872b-af77bc59f63f
+        spacedata:
+          meta:
+            guid: 302ffe0c-383d-44ca-872b-af77bc59f63f
+            url: /v2/spaces/302ffe0c-383d-44ca-872b-af77bc59f63f
+            createdat: "2023-02-07T22:22:48Z"
+            updatedat: "2023-02-07T22:22:48Z"
+          entity:
+            guid: 302ffe0c-383d-44ca-872b-af77bc59f63f
+            createdat: ""
+            updatedat: ""
+            name: enterprise
+            organizationguid: f7a5c8b1-357a-4180-b06a-c6da773d4df2
+            orgurl: /v2/organizations/f7a5c8b1-357a-4180-b06a-c6da773d4df2
+            orgdata:
+              meta:
+                guid: f7a5c8b1-357a-4180-b06a-c6da773d4df2
+                url: /v2/organizations/f7a5c8b1-357a-4180-b06a-c6da773d4df2
+                createdat: "2023-01-30T20:33:42Z"
+                updatedat: "2023-01-30T20:33:42Z"
+              entity:
+                guid: f7a5c8b1-357a-4180-b06a-c6da773d4df2
+                createdat: ""
+                updatedat: ""
+                name: system
+                status: active
+                quotadefinitionguid: 482604ec-9bd6-45e1-848f-20ba4be2893b
+                defaultisolationsegmentguid: ""
+            quotadefinitionguid: ""
+            isolationsegmentguid: ""
+            allowssh: true
+        packageupdatedat: "2023-02-07T22:24:44Z"
+      environment:
+        environment: {}
+        stagingenv: {}
+        runningenv: {}
+        systemenv:
+          VCAP_SERVICES: '{}'
+        applicationenv:
+          VCAP_APPLICATION: '{"application_id":"8735393b-a1f7-4211-a6b3-459a7c5e6749","application_name":"inventory","application_uris":["enterprise-app-525210839-inventory.20.231.121.184.nip.io"],"application_version":"116f7a86-7543-4d9b-a2e5-cad79eba06a0","cf_api":"https://api.20.231.121.184.nip.io","limits":{"disk":1024,"fds":16384,"mem":1024},"name":"inventory","space_id":"302ffe0c-383d-44ca-872b-af77bc59f63f","space_name":"enterprise","uris":["enterprise-app-525210839-inventory.20.231.121.184.nip.io"],"users":null,"version":"116f7a86-7543-4d9b-a2e5-cad79eba06a0"}'
+    - application:
+        guid: 172d60e5-fa41-455a-b7d3-0a90e7a8a43d
+        createdat: "2023-02-07T22:25:48Z"
+        updatedat: "2023-02-07T22:26:08Z"
+        name: orders
+        memory: 1024
+        instances: 1
+        diskquota: 1024
+        spaceguid: 302ffe0c-383d-44ca-872b-af77bc59f63f
+        stackguid: 0d18706c-b06a-47af-9c29-80c0a3ac8627
+        state: STARTED
+        packagestate: STAGED
+        command: ""
+        buildpack: https://github.com/cloudfoundry/java-buildpack
+        detectedbuildpack: java
+        detectedbuildpackguid: ""
+        healthcheckhttpendpoint: ""
+        healthchecktype: port
+        healthchecktimeout: 180
+        diego: true
+        enablessh: true
+        detectedstartcommand: 'JAVA_OPTS="-agentpath:$PWD/.java-buildpack/open_jdk_jre/bin/jvmkill-1.16.0_RELEASE=printHeapHistogram=1 -Djava.io.tmpdir=$TMPDIR -XX:ActiveProcessorCount=$(nproc) -Djava.ext.dirs=$PWD/.java-buildpack/container_security_provider:$PWD/.java-buildpack/open_jdk_jre/lib/ext -Djava.security.properties=$PWD/.java-buildpack/java_security/java.security $JAVA_OPTS" && CALCULATED_MEMORY=$($PWD/.java-buildpack/open_jdk_jre/bin/java-buildpack-memory-calculator-3.13.0_RELEASE -totMemory=$MEMORY_LIMIT -loadedClasses=22433 -poolType=metaspace -stackThreads=250 -vmOptions="$JAVA_OPTS") && echo JVM Memory Configuration: $CALCULATED_MEMORY && JAVA_OPTS="$JAVA_OPTS $CALCULATED_MEMORY" && MALLOC_ARENA_MAX=2 SERVER_PORT=$PORT eval exec $PWD/.java-buildpack/open_jdk_jre/bin/java $JAVA_OPTS -cp $PWD/. org.springframework.boot.loader.JarLauncher'
+        dockerimage: ""
+        dockercredentialsjson: {}
+        dockercredentials:
+          username: ""
+          password: ""
+        environment: {}
+        stagingfailedreason: ""
+        stagingfaileddescription: ""
+        ports:
+          - 8080
+        spaceurl: /v2/spaces/302ffe0c-383d-44ca-872b-af77bc59f63f
+        spacedata:
+          meta:
+            guid: 302ffe0c-383d-44ca-872b-af77bc59f63f
+            url: /v2/spaces/302ffe0c-383d-44ca-872b-af77bc59f63f
+            createdat: "2023-02-07T22:22:48Z"
+            updatedat: "2023-02-07T22:22:48Z"
+          entity:
+            guid: 302ffe0c-383d-44ca-872b-af77bc59f63f
+            createdat: ""
+            updatedat: ""
+            name: enterprise
+            organizationguid: f7a5c8b1-357a-4180-b06a-c6da773d4df2
+            orgurl: /v2/organizations/f7a5c8b1-357a-4180-b06a-c6da773d4df2
+            orgdata:
+              meta:
+                guid: f7a5c8b1-357a-4180-b06a-c6da773d4df2
+                url: /v2/organizations/f7a5c8b1-357a-4180-b06a-c6da773d4df2
+                createdat: "2023-01-30T20:33:42Z"
+                updatedat: "2023-01-30T20:33:42Z"
+              entity:
+                guid: f7a5c8b1-357a-4180-b06a-c6da773d4df2
+                createdat: ""
+                updatedat: ""
+                name: system
+                status: active
+                quotadefinitionguid: 482604ec-9bd6-45e1-848f-20ba4be2893b
+                defaultisolationsegmentguid: ""
+            quotadefinitionguid: ""
+            isolationsegmentguid: ""
+            allowssh: true
+        packageupdatedat: "2023-02-07T22:25:52Z"
+      environment:
+        environment: {}
+        stagingenv: {}
+        runningenv: {}
+        systemenv:
+          VCAP_SERVICES: '{}'
+        applicationenv:
+          VCAP_APPLICATION: '{"application_id":"172d60e5-fa41-455a-b7d3-0a90e7a8a43d","application_name":"orders","application_uris":["enterprise-app-525210839-orders.20.231.121.184.nip.io"],"application_version":"7884a120-040a-444c-baf2-b88d5888d727","cf_api":"https://api.20.231.121.184.nip.io","limits":{"disk":1024,"fds":16384,"mem":1024},"name":"orders","space_id":"302ffe0c-383d-44ca-872b-af77bc59f63f","space_name":"enterprise","uris":["enterprise-app-525210839-orders.20.231.121.184.nip.io"],"users":null,"version":"7884a120-040a-444c-baf2-b88d5888d727"}'
+    - application:
+        guid: 44a458c4-dea0-425b-89ac-ab95d9d12af7
+        createdat: "2023-02-07T22:27:31Z"
+        updatedat: "2023-02-07T22:28:03Z"
+        name: gateway
+        memory: 1024
+        instances: 1
+        diskquota: 1024
+        spaceguid: 302ffe0c-383d-44ca-872b-af77bc59f63f
+        stackguid: 0d18706c-b06a-47af-9c29-80c0a3ac8627
+        state: STARTED
+        packagestate: STAGED
+        command: ""
+        buildpack: https://github.com/cloudfoundry/java-buildpack
+        detectedbuildpack: java
+        detectedbuildpackguid: ""
+        healthcheckhttpendpoint: ""
+        healthchecktype: port
+        healthchecktimeout: 180
+        diego: true
+        enablessh: true
+        detectedstartcommand: 'JAVA_OPTS="-agentpath:$PWD/.java-buildpack/open_jdk_jre/bin/jvmkill-1.16.0_RELEASE=printHeapHistogram=1 -Djava.io.tmpdir=$TMPDIR -XX:ActiveProcessorCount=$(nproc) -Djava.ext.dirs=$PWD/.java-buildpack/container_security_provider:$PWD/.java-buildpack/open_jdk_jre/lib/ext -Djava.security.properties=$PWD/.java-buildpack/java_security/java.security $JAVA_OPTS" && CALCULATED_MEMORY=$($PWD/.java-buildpack/open_jdk_jre/bin/java-buildpack-memory-calculator-3.13.0_RELEASE -totMemory=$MEMORY_LIMIT -loadedClasses=22957 -poolType=metaspace -stackThreads=250 -vmOptions="$JAVA_OPTS") && echo JVM Memory Configuration: $CALCULATED_MEMORY && JAVA_OPTS="$JAVA_OPTS $CALCULATED_MEMORY" && MALLOC_ARENA_MAX=2 SERVER_PORT=$PORT eval exec $PWD/.java-buildpack/open_jdk_jre/bin/java $JAVA_OPTS -cp $PWD/. org.springframework.boot.loader.JarLauncher'
+        dockerimage: ""
+        dockercredentialsjson: {}
+        dockercredentials:
+          username: ""
+          password: ""
+        environment:
+          ENTERPRISE_APP_CUSTOMERS_URL: http://enterprise-app-525210839-customers.20.231.121.184.nip.io/customers
+          ENTERPRISE_APP_INVENTORY_URL: http://enterprise-app-525210839-inventory.20.231.121.184.nip.io/products
+          ENTERPRISE_APP_ORDERS_URL: http://enterprise-app-525210839-orders.20.231.121.184.nip.io/orders
+          JBP_CONFIG_SPRING_AUTO_RECONFIGURATION: '{ enabled: false }'
+          SPRING_PROFILES_ACTIVE: dev
+        stagingfailedreason: ""
+        stagingfaileddescription: ""
+        ports:
+          - 8080
+        spaceurl: /v2/spaces/302ffe0c-383d-44ca-872b-af77bc59f63f
+        spacedata:
+          meta:
+            guid: 302ffe0c-383d-44ca-872b-af77bc59f63f
+            url: /v2/spaces/302ffe0c-383d-44ca-872b-af77bc59f63f
+            createdat: "2023-02-07T22:22:48Z"
+            updatedat: "2023-02-07T22:22:48Z"
+          entity:
+            guid: 302ffe0c-383d-44ca-872b-af77bc59f63f
+            createdat: ""
+            updatedat: ""
+            name: enterprise
+            organizationguid: f7a5c8b1-357a-4180-b06a-c6da773d4df2
+            orgurl: /v2/organizations/f7a5c8b1-357a-4180-b06a-c6da773d4df2
+            orgdata:
+              meta:
+                guid: f7a5c8b1-357a-4180-b06a-c6da773d4df2
+                url: /v2/organizations/f7a5c8b1-357a-4180-b06a-c6da773d4df2
+                createdat: "2023-01-30T20:33:42Z"
+                updatedat: "2023-01-30T20:33:42Z"
+              entity:
+                guid: f7a5c8b1-357a-4180-b06a-c6da773d4df2
+                createdat: ""
+                updatedat: ""
+                name: system
+                status: active
+                quotadefinitionguid: 482604ec-9bd6-45e1-848f-20ba4be2893b
+                defaultisolationsegmentguid: ""
+            quotadefinitionguid: ""
+            isolationsegmentguid: ""
+            allowssh: true
+        packageupdatedat: "2023-02-07T22:27:37Z"
+      environment:
+        environment:
+          ENTERPRISE_APP_CUSTOMERS_URL: http://enterprise-app-525210839-customers.20.231.121.184.nip.io/customers
+          ENTERPRISE_APP_INVENTORY_URL: http://enterprise-app-525210839-inventory.20.231.121.184.nip.io/products
+          ENTERPRISE_APP_ORDERS_URL: http://enterprise-app-525210839-orders.20.231.121.184.nip.io/orders
+          JBP_CONFIG_SPRING_AUTO_RECONFIGURATION: '{ enabled: false }'
+          SPRING_PROFILES_ACTIVE: dev
+        stagingenv: {}
+        runningenv: {}
+        systemenv:
+          VCAP_SERVICES: '{}'
+        applicationenv:
+          VCAP_APPLICATION: '{"application_id":"44a458c4-dea0-425b-89ac-ab95d9d12af7","application_name":"gateway","application_uris":["enterprise-app-525210839-gateway.20.231.121.184.nip.io"],"application_version":"53c2dfd4-a2d9-46ee-bfa6-afb4c8155724","cf_api":"https://api.20.231.121.184.nip.io","limits":{"disk":1024,"fds":16384,"mem":1024},"name":"gateway","space_id":"302ffe0c-383d-44ca-872b-af77bc59f63f","space_name":"enterprise","uris":["enterprise-app-525210839-gateway.20.231.121.184.nip.io"],"users":null,"version":"53c2dfd4-a2d9-46ee-bfa6-afb4c8155724"}'
+    - application:
+        guid: 333c6a3a-4cd5-4603-8cf7-19c5db9bf745
+        createdat: "2023-02-07T22:29:17Z"
+        updatedat: "2023-02-07T22:29:33Z"
+        name: frontend
+        memory: 2048
+        instances: 1
+        diskquota: 1024
+        spaceguid: 302ffe0c-383d-44ca-872b-af77bc59f63f
+        stackguid: 1f56ea40-18f4-4395-ac20-025ec0b43fb9
+        state: STARTED
+        packagestate: STAGED
+        command: npm run start
+        buildpack: https://github.com/cloudfoundry/nodejs-buildpack
+        detectedbuildpack: nodejs
+        detectedbuildpackguid: ""
+        healthcheckhttpendpoint: ""
+        healthchecktype: port
+        healthchecktimeout: 180
+        diego: true
+        enablessh: true
+        detectedstartcommand: npm start
+        dockerimage: ""
+        dockercredentialsjson: {}
+        dockercredentials:
+          username: ""
+          password: ""
+        environment:
+          ENTERPRISE_APP_GATEWAY_URL: http://enterprise-app-525210839-gateway.20.231.121.184.nip.io
+        stagingfailedreason: ""
+        stagingfaileddescription: ""
+        ports:
+          - 8080
+        spaceurl: /v2/spaces/302ffe0c-383d-44ca-872b-af77bc59f63f
+        spacedata:
+          meta:
+            guid: 302ffe0c-383d-44ca-872b-af77bc59f63f
+            url: /v2/spaces/302ffe0c-383d-44ca-872b-af77bc59f63f
+            createdat: "2023-02-07T22:22:48Z"
+            updatedat: "2023-02-07T22:22:48Z"
+          entity:
+            guid: 302ffe0c-383d-44ca-872b-af77bc59f63f
+            createdat: ""
+            updatedat: ""
+            name: enterprise
+            organizationguid: f7a5c8b1-357a-4180-b06a-c6da773d4df2
+            orgurl: /v2/organizations/f7a5c8b1-357a-4180-b06a-c6da773d4df2
+            orgdata:
+              meta:
+                guid: f7a5c8b1-357a-4180-b06a-c6da773d4df2
+                url: /v2/organizations/f7a5c8b1-357a-4180-b06a-c6da773d4df2
+                createdat: "2023-01-30T20:33:42Z"
+                updatedat: "2023-01-30T20:33:42Z"
+              entity:
+                guid: f7a5c8b1-357a-4180-b06a-c6da773d4df2
+                createdat: ""
+                updatedat: ""
+                name: system
+                status: active
+                quotadefinitionguid: 482604ec-9bd6-45e1-848f-20ba4be2893b
+                defaultisolationsegmentguid: ""
+            quotadefinitionguid: ""
+            isolationsegmentguid: ""
+            allowssh: true
+        packageupdatedat: "2023-02-07T22:29:24Z"
+      environment:
+        environment:
+          ENTERPRISE_APP_GATEWAY_URL: http://enterprise-app-525210839-gateway.20.231.121.184.nip.io
+        stagingenv: {}
+        runningenv: {}
+        systemenv:
+          VCAP_SERVICES: '{}'
+        applicationenv:
+          VCAP_APPLICATION: '{"application_id":"333c6a3a-4cd5-4603-8cf7-19c5db9bf745","application_name":"frontend","application_uris":["enterprise-app-525210839-frontend.20.231.121.184.nip.io"],"application_version":"6ae6c35a-3012-45e2-ad4c-77828b46c7f4","cf_api":"https://api.20.231.121.184.nip.io","limits":{"disk":1024,"fds":16384,"mem":2048},"name":"frontend","space_id":"302ffe0c-383d-44ca-872b-af77bc59f63f","space_name":"enterprise","uris":["enterprise-app-525210839-frontend.20.231.121.184.nip.io"],"users":null,"version":"6ae6c35a-3012-45e2-ad4c-77828b46c7f4"}'

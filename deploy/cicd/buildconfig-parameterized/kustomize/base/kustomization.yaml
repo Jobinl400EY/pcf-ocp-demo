@@ -1,0 +1,12 @@
+resources:
+  - target-enterprise-app-clone-build-push-orders-buildconfig.yaml
+  - target-enterprise-app-web-hook-inventory-secret.yaml
+  - target-enterprise-app-web-hook-orders-secret.yaml
+  - target-enterprise-app-clone-build-push-gateway-buildconfig.yaml
+  - target-enterprise-app-clone-build-push-frontend-buildconfig.yaml
+  - target-enterprise-app-clone-build-push-inventory-buildconfig.yaml
+  - target-enterprise-app-git-repo-generic-secret.yaml
+  - target-enterprise-app-web-hook-customers-secret.yaml
+  - target-enterprise-app-web-hook-frontend-secret.yaml
+  - target-enterprise-app-web-hook-gateway-secret.yaml
+  - target-enterprise-app-clone-build-push-customers-buildconfig.yaml
